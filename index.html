@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Игра на реакциию</title>
+	<link rel="icon" type="image/x-icon" href="333.png">
+	<style type="text/css">
+		.box { 
+			background: red;
+			height: 100px;
+			width: 100px;
+			position: absolute;
+			left: 950px;
+			top: 350px ;
+			transition: 1s;
+			img src: 100jpg;
+			background-image: url(11.png);
+			background-size: 100% 100% ;	
+		}	
+
+</style>
+</head>
+<body>
+ <div class="conteiner" >
+	<div class="box">
+	</div>
+  <div class="box">
+  </div>
+	<div class="box">
+	</div>
+	<div class="box">
+	</div>
+	<div class="box">
+	</div>
+	<div class="box">
+	</div>
+  <div class="box">
+  </div>
+	<div class="box">
+	</div>
+	<div class="box">
+	</div>
+</div>
+
+
+	<h3>Поймай все мячики и собери максимальное количество очков! </h1>
+	<h3>На все у тебя есть 10 секунд!</h1>
+	<h1 class="score">очки <span class="text">0</span> </h1>
+
+
+<script type="text/javascript">
+	  
+	 let mydiv = document.querySelectorAll(".box")
+	let score = 0; 
+	 let number = 0;
+	 let txt = document.querySelector(".text")
+
+	 let randomizer = function(arg) { 
+	 	let random = Math.random() * arg;
+	 	let  round = Math.round(random)
+
+	 	return round 
+	 }
+
+	 let dvij = function(){ 
+	 	number = number + 100;  
+
+	 	for( let y = 0; y<9; y=y+1 ){
+	 		mydiv[y].style.left = randomizer(1980) + "px"; 
+			mydiv[y].style.top = randomizer(900) + "px"; 
+
+			mydiv[y].onclick = function(){ 
+				mydiv[y].style.display = "none"
+				score = score + 1;
+				txt.innerHTML = score 
+
+				if(score>=9){
+	 				alert("Ты выиграл !!!")
+
+	 			}
+			}
+		}
+
+		
+	 }
+
+	  
+	 
+	 let myint = setInterval(dvij, 1000);
+
+	 
+
+	let konec = function() {
+	 	location.reload()
+	 	clearInterval(myint)
+	 	alert("Ты проиграл!!!Лооох!!!")
+	 	
+	 }
+	
+	setTimeout(konec,10000)
+
+</script>
+</body>
+</html>
